@@ -26,13 +26,6 @@ xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
         </xsd:sequence>
       </xsd:complexType>
     </xsd:element>
-    <xsd:element name="requestBalanceByEntityPatternResponseParms">
-      <xsd:complexType>
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" name="return" type="xsd:string"/>
-        </xsd:sequence>
-      </xsd:complexType>
-    </xsd:element>
     </xsd:schema>
 
 </wsdl:types>
@@ -41,7 +34,7 @@ xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="requestBalanceByEntityPatternResponse">
-        <wsdl:part name="parameters" element="tns:requestBalanceByEntityPatternResponseParms">
+        <wsdl:part name="return" type="xsd:string">
         </wsdl:part>
     </wsdl:message>
 <wsdl:portType name="MTPortType">
