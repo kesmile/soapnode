@@ -21,7 +21,7 @@
       });
   
 
-  server.listen(3000);
+  server.listen(8000);
   soap.listen(server, '/wsdl', myService, xml);
   console.log('work');
   
