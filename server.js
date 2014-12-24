@@ -5,7 +5,10 @@
       MTServicesService: {
           MTHTTPPort: {
               requestBalanceByEntityPattern: function(args) {
-                return "00000000000000";
+                return {
+                  return: "0000000000000000"
+                }
+                /*return "00000000000000";*/
               }
           }
       }
