@@ -19,18 +19,11 @@ xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
           <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
         </xsd:sequence>
       </xsd:complexType>
-    <xsd:element name="requestBalanceByEntityPatternRequestParms">
-      <xsd:complexType>
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" name="transactionPattern" type="xsd:string"/>
-        </xsd:sequence>
-      </xsd:complexType>
-    </xsd:element>
     </xsd:schema>
 
 </wsdl:types>
     <wsdl:message name="requestBalanceByEntityPatternRequest">
-        <wsdl:part name="parameters" element="tns:requestBalanceByEntityPatternRequestParms">
+        <wsdl:part name="transactionPattern" type="xsd:string">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="requestBalanceByEntityPatternResponse">
