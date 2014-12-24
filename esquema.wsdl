@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://54.148.81.57:8000/wsdl?wsdl"
+<wsdl:definitions targetNamespace="http://54.148.81.57:3000/wsdl?wsdl"
 xmlns:ns1="https://wap.tigo.com.gt/ws/MTServicesDataObjects"
 xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding"
 xmlns:tns="http://54.148.81.57:8000/wsdl?wsdl"
@@ -34,7 +34,7 @@ xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
       </xsd:complexType>
     </xsd:element>
     </xsd:schema>
-    
+
 </wsdl:types>
     <wsdl:message name="requestBalanceByEntityPatternRequest">
         <wsdl:part name="parameters" element="tns:requestBalanceByEntityPatternRequestParms">
