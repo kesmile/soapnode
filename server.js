@@ -6,7 +6,7 @@
           MTHTTPPort: {
               requestBalanceByEntityPattern: function(args) {
                 return {
-                  return: "0000000000000000"
+                  return: args.transactionPattern + "RESPONSE00000000"
                 }
               }
           }
