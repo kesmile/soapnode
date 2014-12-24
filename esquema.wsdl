@@ -9,14 +9,34 @@ xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
 xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/"
 xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
-<wsdl:message name="requestBalanceByEntityPatternRequest">
-    <wsdl:part name="transactionPattern" type="xsd:string">
-    </wsdl:part>
-</wsdl:message>
-<wsdl:message name="requestBalanceByEntityPatternResponse">
-    <wsdl:part name="return" type="xsd:string">
-    </wsdl:part>
-</wsdl:message>
+<wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="qualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://54.148.81.57:8000/wsdl?wsdl">
+      <xsd:complexType name="ArrayOfString">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    <xsd:element name="requestBalanceByEntityPatternRequestParms">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="transactionPattern" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    </xsd:schema>
+
+</wsdl:types>
+    <wsdl:message name="requestBalanceByEntityPatternRequest">
+        <wsdl:part name="parameters" element="tns:requestBalanceByEntityPatternRequestParms">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="requestBalanceByEntityPatternResponse">
+        <wsdl:part name="return" type="xsd:string">
+        </wsdl:part>
+    </wsdl:message>
 <wsdl:portType name="MTPortType">
 
     <wsdl:operation name="requestBalanceByEntityPattern">
