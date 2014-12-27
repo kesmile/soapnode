@@ -10,15 +10,15 @@ xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
 xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/"
 xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
 <wsdl:types>
-    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    attributeFormDefault="qualified"
-    elementFormDefault="qualified"
-    targetNamespace="http://54.148.81.57:8000/wsdl?wsdl">
-      <xsd:complexType name="ArrayOfString">
-        <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
-      </xsd:complexType>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  attributeFormDefault="qualified"
+  elementFormDefault="qualified"
+  targetNamespace="http://54.148.81.57:8000/wsdl?wsdl">
+    <xsd:complexType name="ArrayOfString">
+      <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
     <xsd:element name="requestBalanceByEntityPattern">
       <xsd:complexType>
         <xsd:sequence>
@@ -26,39 +26,72 @@ xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
         </xsd:sequence>
       </xsd:complexType>
     </xsd:element>
-    </xsd:schema>
-
+    <xsd:element name="creditBalanceByEntityPattern">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="transactionPattern" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
 </wsdl:types>
-    <wsdl:message name="requestBalanceByEntityPatternRequest">
-        <wsdl:part name="parameters" element="tns:requestBalanceByEntityPattern">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:message name="requestBalanceByEntityPatternResponse">
-        <wsdl:part name="return" type="xsd:string">
-        </wsdl:part>
-    </wsdl:message>
-<wsdl:portType name="MTPortType">
 
-    <wsdl:operation name="requestBalanceByEntityPattern">
-        <wsdl:input name="requestBalanceByEntityPatternRequest" message="tns:requestBalanceByEntityPatternRequest">
-        </wsdl:input>
-        <wsdl:output name="requestBalanceByEntityPatternResponse" message="tns:requestBalanceByEntityPatternResponse">
-        </wsdl:output>
-    </wsdl:operation>
+<wsdl:message name="requestBalanceByEntityPatternRequest">
+  <wsdl:part name="parameters" element="tns:requestBalanceByEntityPattern">
+  </wsdl:part>
+</wsdl:message>
+<wsdl:message name="requestBalanceByEntityPatternResponse">
+  <wsdl:part name="return" type="xsd:string">
+  </wsdl:part>
+</wsdl:message>
+
+<wsdl:message name="creditBalanceByEntityPatternRequest">
+  <wsdl:part name="parameters" element="tns:creditBalanceByEntityPattern">
+  </wsdl:part>
+</wsdl:message>
+<wsdl:message name="creditBalanceByEntityPatternResponse">
+  <wsdl:part name="return" type="xsd:string">
+  </wsdl:part>
+</wsdl:message>
+
+
+<wsdl:portType name="MTPortType">
+  <wsdl:operation name="requestBalanceByEntityPattern">
+    <wsdl:input name="requestBalanceByEntityPatternRequest" message="tns:requestBalanceByEntityPatternRequest">
+    </wsdl:input>
+    <wsdl:output name="requestBalanceByEntityPatternResponse" message="tns:requestBalanceByEntityPatternResponse">
+    </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="creditBalanceByEntityPattern">
+    <wsdl:input name="creditBalanceByEntityPatternRequest" message="tns:requestBalanceByEntityPatternRequest">
+    </wsdl:input>
+    <wsdl:output name="creditBalanceByEntityPatternResponse" message="creditBalanceByEntityPatternResponse">
+    </wsdl:output>
+  </wsdl:operation>
 </wsdl:portType>
 
 <wsdl:binding name="MTHttpBinding" type="tns:MTPortType">
-<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="requestBalanceByEntityPattern">
-      <wsdlsoap:operation soapAction=""/>
-      <wsdl:input name="requestBalanceByEntityPatternRequest">
-        <wsdlsoap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="requestBalanceByEntityPatternResponse">
-        <wsdlsoap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
+  <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <wsdl:operation name="requestBalanceByEntityPattern">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="requestBalanceByEntityPatternRequest">
+      <wsdlsoap:body use="literal"/>
+    </wsdl:input>
+    <wsdl:output name="requestBalanceByEntityPatternResponse">
+      <wsdlsoap:body use="literal"/>
+    </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="creditBalanceByEntityPattern">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="creditBalanceByEntityPatternRequest">
+      <wsdlsoap:body use="literal"/>
+    </wsdl:input>
+    <wsdl:output name="creditBalanceByEntityPatternResponse">
+      <wsdlsoap:body use="literal"/>
+    </wsdl:output>
+  </wsdl:operation>
 </wsdl:binding>
+
 <wsdl:service name="MTServicesService">
     <wsdl:port name="MTHTTPPort" binding="tns:MTHttpBinding">
       <wsdlsoap:address location="http://54.148.81.57:8000/wsdl"/>
