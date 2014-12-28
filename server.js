@@ -8,7 +8,7 @@
                 return {
                   return: args.transactionPattern + "RESPONSE00000000"
                 }
-              }
+              },
               creditBalanceByEntityPattern: function (args) {
                 return {
                   return: args.transactionPattern + "RESPONSE123123123123123"
