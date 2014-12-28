@@ -3,8 +3,6 @@
     $client = new SoapClient("http://54.148.81.57:8000/wsdl?wsdl",array("trace"=>1));
     $params = array(
                   "transactionPattern"=>"SENT111111");
-
-    //$result=$client->BillingNotification($params['phonenumber'],$params['shortcodenumber'],$params['price'],$params['transactionid']);
     $result=$client->requestBalanceByEntityPattern($params);
 
 ?>
