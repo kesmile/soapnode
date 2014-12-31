@@ -2,85 +2,89 @@
 <definitions
              targetNamespace="http://localhost:8000/wsdl?wsdl"
              xmlns:tns="http://localhost:8000/wsdl?wsdl"
+             xmlns:ns2="http://localhost:8000/wsdl?wsdl"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              name="TransactionServiceService"
              >
   <types targetNamespace="http://localhost:8000/wsdl?wsdl">
-    <xs:element name="creditBalanceByEntityPattern" type="tns:creditBalanceByEntityPattern"/>
-    <xs:element name="creditBalanceByEntityPatternResponse" type="tns:creditBalanceByEntityPatternResponse"/>
-    <xs:element name="requestBalanceByEntityPattern" type="tns:requestBalanceByEntityPattern"/>
-    <xs:element name="requestBalanceByEntityPatternResponse" type="tns:requestBalanceByEntityPatternResponse"/>
-    <xs:element name="reverseBalanceByEntityPattern" type="tns:reverseBalanceByEntityPattern"/>
-    <xs:element name="reverseBalanceByEntityPatternResponse" type="tns:reverseBalanceByEntityPatternResponse"/>
-    <xs:complexType name="reverseBalanceByEntityPattern">
-      <xs:sequence>
-        <xs:element name="transactionPattern" type="xs:string" minOccurs="0"/>
-      </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="reverseBalanceByEntityPatternResponse">
-      <xs:sequence>
-        <xs:element name="return" type="xs:string" minOccurs="0"/>
-      </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="requestBalanceByEntityPattern">
-      <xs:sequence>
-        <xs:element name="transactionPattern" type="xs:string" minOccurs="0"/>
-      </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="requestBalanceByEntityPatternResponse">
-      <xs:sequence>
-        <xs:element name="return" type="xs:string" minOccurs="0"/>
-      </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="creditBalanceByEntityPattern">
-      <xs:sequence>
-        <xs:element name="transactionPattern" type="xs:string" minOccurs="0"/>
-      </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="creditBalanceByEntityPatternResponse">
-      <xs:sequence>
-        <xs:element name="return" type="xs:string" minOccurs="0"/>
-      </xs:sequence>
-    </xs:complexType>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              targetNamespace="http://localhost:8000/wsdl?wsdl">
+    <xsd:element name="requestBalanceByEntityPattern" type="ns2:requestBalanceByEntityPattern"/>
+    <xsd:element name="requestBalanceByEntityPatternResponse" type="ns2:requestBalanceByEntityPatternResponse"/>
+    <xsd:element name="creditBalanceByEntityPattern" type="ns2:creditBalanceByEntityPattern"/>
+    <xsd:element name="creditBalanceByEntityPatternResponse" type="ns2:creditBalanceByEntityPatternResponse"/>
+    <xsd:element name="reverseBalanceByEntityPattern" type="ns2:reverseBalanceByEntityPattern"/>
+    <xsd:element name="reverseBalanceByEntityPatternResponse" type="ns2:reverseBalanceByEntityPatternResponse"/>
+    <xsd:complexType name="requestBalanceByEntityPattern">
+      <xsd:sequence>
+        <xsd:element name="transactionPattern" type="xs:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="requestBalanceByEntityPatternResponse">
+      <xsd:sequence>
+        <xsd:element name="return" type="xs:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="creditBalanceByEntityPattern">
+      <xsd:sequence>
+        <xsd:element name="transactionPattern" type="xs:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="creditBalanceByEntityPatternResponse">
+      <xsd:sequence>
+        <xsd:element name="return" type="xs:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+        <xsd:complexType name="reverseBalanceByEntityPattern">
+      <xsd:sequence>
+        <xsd:element name="transactionPattern" type="xs:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="reverseBalanceByEntityPatternResponse">
+      <xsd:sequence>
+        <xsd:element name="return" type="xs:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+   </xsd:schema>
   </types>
 
   <message name="requestBalanceByEntityPattern">
-    <part name="parameters" element="tns:requestBalanceByEntityPattern"/>
+    <part name="parameters" element="ns2:requestBalanceByEntityPattern"/>
   </message>
   <message name="requestBalanceByEntityPatternResponse">
-    <part name="parameters" element="tns:requestBalanceByEntityPatternResponse"/>
+    <part name="parameters" element="ns2:requestBalanceByEntityPatternResponse"/>
   </message>
   <message name="creditBalanceByEntityPattern">
-    <part name="parameters" element="tns:creditBalanceByEntityPattern"/>
+    <part name="parameters" element="ns2:creditBalanceByEntityPattern"/>
   </message>
   <message name="creditBalanceByEntityPatternResponse">
-    <part name="parameters" element="tns:creditBalanceByEntityPatternResponse"/>
+    <part name="parameters" element="ns2:creditBalanceByEntityPatternResponse"/>
   </message>
   <message name="reverseBalanceByEntityPattern">
-    <part name="parameters" element="tns:reverseBalanceByEntityPattern"/>
+    <part name="parameters" element="ns2:reverseBalanceByEntityPattern"/>
   </message>
   <message name="reverseBalanceByEntityPatternResponse">
-    <part name="parameters" element="tns:reverseBalanceByEntityPatternResponse"/>
+    <part name="parameters" element="ns2:reverseBalanceByEntityPatternResponse"/>
   </message>
 
   <portType name="TransactionService">
 
     <operation name="requestBalanceByEntityPattern">
-      <input message="tns:requestBalanceByEntityPattern"/>
-      <output message="tns:requestBalanceByEntityPatternResponse"/>
+      <input message="ns2:requestBalanceByEntityPattern"/>
+      <output message="ns2:requestBalanceByEntityPatternResponse"/>
     </operation>
     <operation name="creditBalanceByEntityPattern">
-      <input message="tns:creditBalanceByEntityPattern"/>
-      <output message="tns:creditBalanceByEntityPatternResponse"/>
+      <input message="ns2:creditBalanceByEntityPattern"/>
+      <output message="ns2:creditBalanceByEntityPatternResponse"/>
     </operation>
     <operation name="reverseBalanceByEntityPattern">
-      <input message="tns:reverseBalanceByEntityPattern"/>
-      <output message="tns:reverseBalanceByEntityPatternResponse"/>
+      <input message="ns2:reverseBalanceByEntityPattern"/>
+      <output message="ns2:reverseBalanceByEntityPatternResponse"/>
     </operation>
   </portType>
-  <binding name="TransactionServicePortBinding" type="tns:TransactionService">
+  <binding name="TransactionServicePortBinding" type="ns2:TransactionService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <operation name="requestBalanceByEntityPattern">
       <soap:operation soapAction=""/>
@@ -111,7 +115,7 @@
     </operation>
   </binding>
   <service name="TransactionService">
-    <port name="TransactionServicePort" binding="tns:TransactionServicePortBinding">
+    <port name="TransactionServicePort" binding="ns2:TransactionServicePortBinding">
       <soap:address location="http://localhost:8000/wsdl"/>
     </port>
   </service>
