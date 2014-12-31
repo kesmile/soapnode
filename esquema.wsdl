@@ -1,100 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://54.148.81.57:8000/wsdl?wsdl"
-xmlns:ns1="https://wap.tigo.com.gt/ws/MTServicesDataObjects"
-xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding"
-xmlns:tns="http://54.148.81.57:8000/wsdl?wsdl"
-xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/"
-xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
-<wsdl:types>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  attributeFormDefault="qualified"
-  elementFormDefault="qualified"
-  targetNamespace="http://54.148.81.57:8000/wsdl?wsdl">
-    <xsd:complexType name="ArrayOfString">
-      <xsd:sequence>
-        <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
-      </xsd:sequence>
-    </xsd:complexType>
-    <xsd:element name="requestBalanceByEntityPattern">
-      <xsd:complexType>
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" name="transactionPattern" type="xsd:string"/>
-        </xsd:sequence>
-      </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="creditBalanceByEntityPattern">
-      <xsd:complexType>
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" name="transactionPattern" type="xsd:string"/>
-        </xsd:sequence>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-</wsdl:types>
+<definitions
+             targetNamespace="http://localhost:8000/wsdl?wsdl"
+             xmlns:tns="http://localhost:8000/wsdl?wsdl"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             name="TransactionServiceService"
+             >
+  <types targetNamespace="http://localhost:8000/wsdl?wsdl">
+    <xs:element name="creditBalanceByEntityPattern" type="tns:creditBalanceByEntityPattern"/>
+    <xs:element name="creditBalanceByEntityPatternResponse" type="tns:creditBalanceByEntityPatternResponse"/>
+    <xs:element name="requestBalanceByEntityPattern" type="tns:requestBalanceByEntityPattern"/>
+    <xs:element name="requestBalanceByEntityPatternResponse" type="tns:requestBalanceByEntityPatternResponse"/>
+    <xs:element name="reverseBalanceByEntityPattern" type="tns:reverseBalanceByEntityPattern"/>
+    <xs:element name="reverseBalanceByEntityPatternResponse" type="tns:reverseBalanceByEntityPatternResponse"/>
+    <xs:complexType name="reverseBalanceByEntityPattern">
+      <xs:sequence>
+        <xs:element name="transactionPattern" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="reverseBalanceByEntityPatternResponse">
+      <xs:sequence>
+        <xs:element name="return" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="requestBalanceByEntityPattern">
+      <xs:sequence>
+        <xs:element name="transactionPattern" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="requestBalanceByEntityPatternResponse">
+      <xs:sequence>
+        <xs:element name="return" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="creditBalanceByEntityPattern">
+      <xs:sequence>
+        <xs:element name="transactionPattern" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="creditBalanceByEntityPatternResponse">
+      <xs:sequence>
+        <xs:element name="return" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </types>
 
-<wsdl:message name="requestBalanceByEntityPatternRequest">
-  <wsdl:part name="parameters" element="tns:requestBalanceByEntityPattern">
-  </wsdl:part>
-</wsdl:message>
-<wsdl:message name="requestBalanceByEntityPatternResponse">
-  <wsdl:part name="return" type="xsd:string">
-  </wsdl:part>
-</wsdl:message>
+  <message name="requestBalanceByEntityPattern">
+    <part name="parameters" element="tns:requestBalanceByEntityPattern"/>
+  </message>
+  <message name="requestBalanceByEntityPatternResponse">
+    <part name="parameters" element="tns:requestBalanceByEntityPatternResponse"/>
+  </message>
+  <message name="creditBalanceByEntityPattern">
+    <part name="parameters" element="tns:creditBalanceByEntityPattern"/>
+  </message>
+  <message name="creditBalanceByEntityPatternResponse">
+    <part name="parameters" element="tns:creditBalanceByEntityPatternResponse"/>
+  </message>
+  <message name="reverseBalanceByEntityPattern">
+    <part name="parameters" element="tns:reverseBalanceByEntityPattern"/>
+  </message>
+  <message name="reverseBalanceByEntityPatternResponse">
+    <part name="parameters" element="tns:reverseBalanceByEntityPatternResponse"/>
+  </message>
 
-<wsdl:message name="creditBalanceByEntityPatternRequest">
-  <wsdl:part name="parameters" element="tns:creditBalanceByEntityPattern">
-  </wsdl:part>
-</wsdl:message>
-<wsdl:message name="creditBalanceByEntityPatternResponse">
-  <wsdl:part name="return" type="xsd:string">
-  </wsdl:part>
-</wsdl:message>
+  <portType name="TransactionService">
 
-
-<wsdl:portType name="MTPortType">
-  <wsdl:operation name="requestBalanceByEntityPattern">
-    <wsdl:input name="requestBalanceByEntityPatternRequest" message="tns:requestBalanceByEntityPatternRequest">
-    </wsdl:input>
-    <wsdl:output name="requestBalanceByEntityPatternResponse" message="tns:requestBalanceByEntityPatternResponse">
-    </wsdl:output>
-  </wsdl:operation>
-  <wsdl:operation name="creditBalanceByEntityPattern">
-    <wsdl:input name="creditBalanceByEntityPatternRequest" message="tns:creditBalanceByEntityPatternRequest">
-    </wsdl:input>
-    <wsdl:output name="creditBalanceByEntityPatternResponse" message="creditBalanceByEntityPatternResponse">
-    </wsdl:output>
-  </wsdl:operation>
-</wsdl:portType>
-
-<wsdl:binding name="MTHttpBinding" type="tns:MTPortType">
-  <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-  <wsdl:operation name="requestBalanceByEntityPattern">
-    <wsdlsoap:operation soapAction=""/>
-    <wsdl:input name="requestBalanceByEntityPatternRequest">
-      <wsdlsoap:body use="literal"/>
-    </wsdl:input>
-    <wsdl:output name="requestBalanceByEntityPatternResponse">
-      <wsdlsoap:body use="literal"/>
-    </wsdl:output>
-  </wsdl:operation>
-  <wsdl:operation name="creditBalanceByEntityPattern">
-    <wsdlsoap:operation soapAction=""/>
-    <wsdl:input name="creditBalanceByEntityPatternRequest">
-      <wsdlsoap:body use="literal"/>
-    </wsdl:input>
-    <wsdl:output name="creditBalanceByEntityPatternResponse">
-      <wsdlsoap:body use="literal"/>
-    </wsdl:output>
-  </wsdl:operation>
-</wsdl:binding>
-
-<wsdl:service name="MTServicesService">
-    <wsdl:port name="MTHTTPPort" binding="tns:MTHttpBinding">
-      <wsdlsoap:address location="http://54.148.81.57:8000/wsdl"/>
-    </wsdl:port>
-</wsdl:service>
-</wsdl:definitions>
+    <operation name="requestBalanceByEntityPattern">
+      <input message="tns:requestBalanceByEntityPattern"/>
+      <output message="tns:requestBalanceByEntityPatternResponse"/>
+    </operation>
+    <operation name="creditBalanceByEntityPattern">
+      <input message="tns:creditBalanceByEntityPattern"/>
+      <output message="tns:creditBalanceByEntityPatternResponse"/>
+    </operation>
+    <operation name="reverseBalanceByEntityPattern">
+      <input message="tns:reverseBalanceByEntityPattern"/>
+      <output message="tns:reverseBalanceByEntityPatternResponse"/>
+    </operation>
+  </portType>
+  <binding name="TransactionServicePortBinding" type="tns:TransactionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="requestBalanceByEntityPattern">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="creditBalanceByEntityPattern">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="reverseBalanceByEntityPattern">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="TransactionService">
+    <port name="TransactionServicePort" binding="tns:TransactionServicePortBinding">
+      <soap:address location="http://localhost:8000/wsdl"/>
+    </port>
+  </service>
+</definitions>
